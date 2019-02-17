@@ -2,8 +2,7 @@ var Eth = require('ethjs');
 const Web3 = require('web3');
 
 class SendMessage {
-    sendMesg(message) {
-        console.log('Fee paid, sending message to mesg-app')
+    sendMesg(message,callBack) {
         if (window.ethereum) {
             // eslint-disable-next-line no-undef  
             web3 = new Web3(window.ethereum);
@@ -33,7 +32,8 @@ class SendMessage {
                                 },
                                 body: JSON.stringify({ "message": message, "senderID": senderAddress })
                             }).then(function (response) {
-                                console.log('Response: ' + response);
+                                console.log('trying call back')//TODO:REMOVE
+                                callBack()
                             });
                         }
                     });
