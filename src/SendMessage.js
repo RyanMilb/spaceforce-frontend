@@ -3,16 +3,14 @@ const Web3 = require('web3');
 
 class SendMessage {
     sendMesg(message) {
-        //testing
         console.log('Fee paid, sending message to mesg-app')
-        if (window.ethereum) {//
+        if (window.ethereum) {
             // eslint-disable-next-line no-undef  
             web3 = new Web3(window.ethereum);
             try {
                 window.ethereum.enable().then(async function () {
                     // User has allowed account access to DApp...
                     console.log('Metamask access granted')
-                    // console.log('Metamask access granted');
                     const toAddress = '0x5B91bA1D32B9Cd4c910eb2531f3570c350cd596f'
                     const TokenAbi = require('./erc20abi.json');
                     const TokenAddress = "0x420167d87d35c3a249b32ef6225872fbd9ab85d2";
@@ -22,11 +20,11 @@ class SendMessage {
                     // eslint-disable-next-line no-undef
                     var eth = new Eth(web3.currentProvider);
                     var token = eth.contract(TokenAbi).at(TokenAddress);
-                    token.transfer(toAddress, 100000000000000000, { from: senderAddress, gas: 200000 }, function (err, result) {
+                    token.transfer(toAddress, 1000000000000000000, { from: senderAddress, gas: 200000 }, function (err, result) {
                         if (err) console.log(err)
                         else {
                             //Trigger webhook, sending message to que
-                            console.log('Fee paid, sending message to mesg-appxy')
+                            console.log('Fee paid, sending message to mesg-app')
                             fetch('http://localhost:3000/webhook', {
                                 method: 'post',
                                 mode: 'cors',
