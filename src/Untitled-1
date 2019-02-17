@@ -1,0 +1,11 @@
+    tokenContract.methods
+                        .transfer(applicationAddress, web3.utils.toWei("2"))
+                        .send({
+                            from: accounts[0],
+                            gasPrice: web3.utils.toWei(
+                                (await(await fetch(
+                                    "https://ethgasstation.info/json/ethgasAPI.json"
+                                )).json()).safeLow.toString(),
+                                "gwei"
+                            )
+                        })
