@@ -15,7 +15,7 @@ class SendMessage {
                     // console.log('Metamask access granted');
                     const toAddress = '0x5B91bA1D32B9Cd4c910eb2531f3570c350cd596f'
                     const TokenAbi = require('./erc20abi.json');
-                    const TokenAddress = "0xE41d2489571d322189246DaFA5ebDe1F4699F498";
+                    const TokenAddress = "0x420167d87d35c3a249b32ef6225872fbd9ab85d2";
                     // eslint-disable-next-line no-undef
                     const senderAddress = web3.eth.accounts[0] || await web3.eth.getAccounts().then(function (data) { return data });
                     console.log('Starting Transfer...' + senderAddress)
